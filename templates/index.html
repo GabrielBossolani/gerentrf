@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GerenTRF - Lista de Tarefas</title>
+</head>
+<body>
+    <h1>Minhas Tarefas</h1>
+    <a href="/criar">Criar nova tarefa</a>
+    <ul>
+        {% for i, tarefa in enumerate(tarefas) %}
+        <li>
+            <strong>{{ tarefa.titulo }}</strong>: {{ tarefa.descricao }}
+            [<a href="/editar/{{ i }}">Editar</a>]
+            [<a href="/excluir/{{ i }}">Excluir</a>]
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
