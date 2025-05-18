@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # GerenTRF
 
 **GerenTRF** é um sistema simples de gerenciamento de tarefas, construído com Python e Flask.
@@ -28,3 +29,7 @@ python app.py
 ```
 http://localhost:5000
 ```
+=======
+# gerentrf
+Sistema simples de gerenciamento de tarefas
+>>>>>>> cc45eed8493cce30dfdc9c9e7737da46076a8710
