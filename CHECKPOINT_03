@@ -1,0 +1,25 @@
+# Checkpoint 03 - Tecnologias Emergentes
+
+## ✅ Atualização do Cronograma de Desenvolvimento
+
+O cronograma foi atualizado para refletir a separação das tarefas de **front-end** e **back-end**. Abaixo, detalha-se o progresso de cada componente:
+
+### 🔧 Back-End
+- **Tecnologia utilizada**: Python com Flask
+- **Status das implementações**:
+  - [x] Configuração do servidor e rotas básicas
+  - [x] Implementação dos endpoints do CRUD
+  - [x] Integração com banco de dados (utilizando SQLite)
+  - [x] Validação de dados e tratamento de erros
+
+### 🎨 Front-End
+- **Tecnologia utilizada**: HTML com templates Jinja2
+- **Status das implementações**:
+  - [x] Estrutura básica das páginas
+  - [x] Formulário de cadastro com integração à API
+  - [x] Listagem de tarefas
+  - [x] Edição e exclusão de registros
+  - [x] Validações visuais e mensagens de feedback
+
+
+Adiciona documentação do Checkpoint 03
