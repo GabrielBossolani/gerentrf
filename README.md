@@ -29,8 +29,8 @@ Git
 Faça um fork do projeto
 Crie uma branch: git checkout -b minha-feature
 Commit das alterações: git commit -m "Minha feature"
-* Push para seu fork: git push origin minha-feature
-* Crie um Pull Request neste repositório
+Push para seu fork: git push origin minha-feature
+Crie um Pull Request neste repositório
 
 ## Boas Práticas de Código (Código Limpo)
 Nomes de variáveis e funções claros e descritivos
