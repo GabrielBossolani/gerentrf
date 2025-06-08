@@ -1,47 +1,39 @@
 from flask import Flask, render_template, request, redirect, url_for
-from models import db, Tarefa
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///tarefas.db'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-db.init_app(app)
 
-# Criar banco de dados com as tabelas
-with app.app_context():
-    db.create_all()
+tarefas = []
 
 @app.route('/')
 def index():
-    tarefas = Tarefa.query.all()
     return render_template('index.html', tarefas=tarefas)
 
 @app.route('/criar', methods=['GET', 'POST'])
 def criar():
     if request.method == 'POST':
-        nova_tarefa = Tarefa(
-            titulo=request.form['titulo'],
-            descricao=request.form['descricao']
-        )
-        db.session.add(nova_tarefa)
-        db.session.commit()
+        titulo = request.form['titulo']
+        descricao = request.form['descricao']
+        tarefas.append({'titulo': titulo, 'descricao': descricao})
         return redirect(url_for('index'))
     return render_template('criar_tarefa.html')
 
-@app.route('/editar/<int:id>', methods=['GET', 'POST'])
-def editar(id):
-    tarefa = Tarefa.query.get_or_404(id)
-    if request.method == 'POST':
-        tarefa.titulo = request.form['titulo']
-        tarefa.descricao = request.form['descricao']
-        db.session.commit()
+@app.route('/editar/<titulo>', methods=['GET', 'POST'])
+def editar(titulo):
+    tarefa = next((t for t in tarefas if t['titulo'] == titulo), None)
+    if not tarefa:
         return redirect(url_for('index'))
+
+    if request.method == 'POST':
+        tarefa['titulo'] = request.form['titulo']
+        tarefa['descricao'] = request.form['descricao']
+        return redirect(url_for('index'))
+
     return render_template('editar_tarefa.html', tarefa=tarefa)
 
-@app.route('/excluir/<int:id>')
-def excluir(id):
-    tarefa = Tarefa.query.get_or_404(id)
-    db.session.delete(tarefa)
-    db.session.commit()
+@app.route('/excluir/<titulo>')
+def excluir(titulo):
+    global tarefas
+    tarefas = [t for t in tarefas if t['titulo'] != titulo]
     return redirect(url_for('index'))
 
 if __name__ == '__main__':
