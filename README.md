@@ -20,12 +20,6 @@
 - Banco de dados: SQLite
 - ORM: SQLAlchemy
 
-## Como Instalar e Executar
-Clone o repositório:
-   ```bash
-   git clone https://github.com/GabrielBossolani/gerentrf.git
-   cd gerentrf
-   
 ## Requisitos do Sistema
 Python 3.10 ou superior
 pip
@@ -50,3 +44,11 @@ Inclui teste básico usando unittest.
 
 Para rodar os testes:
 python -m unittest discover tests
+
+## Como Instalar e Executar 
+Clone o repositório:
+   ```bash
+   git clone https://github.com/GabrielBossolani/gerentrf.git
+   cd gerentrf
+   
+
